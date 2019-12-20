@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  earthworm:
+    image: earthworm:latest
+    container_name: "earthworm"
+    hostname: earthworm
+    ipc: private
+    volumes:
+      - ./etc/ew/params:/eworm/run/params
+      - ./data/tanks:/eworm/tankfiles
+    environment:
+      - SYS_NAME=earthworm.localhost
+      - AWS_DEFAULT_REGION=us-west-2
