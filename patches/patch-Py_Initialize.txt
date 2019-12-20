@@ -1,0 +1,22 @@
+diff --git a/src/mod_python.c b/src/mod_python.c
+index 6259c1b..2b293e8 100644
+--- a/src/mod_python.c
++++ b/src/mod_python.c
+@@ -787,7 +787,7 @@ static int python_init(apr_pool_t *p, apr_pool_t *ptemp,
+ 
+         /* Initialze the main interpreter. */
+ #if PY_MAJOR_VERSION == 2 && \
+-                (PY_MINOR_VERSION < 7 || (PY_MINOR_VERSION == 7 && PY_MICRO_VERSION < 14))
++                (PY_MINOR_VERSION < 7 || (PY_MINOR_VERSION == 7 && PY_MICRO_VERSION > 8))
+         /*
+          * We do not want site.py to
+          * be imported because as of Python 2.7.9 it would cause a
+@@ -801,7 +801,7 @@ static int python_init(apr_pool_t *p, apr_pool_t *ptemp,
+         Py_Initialize();
+ 
+ #if PY_MAJOR_VERSION == 2 && \
+-                (PY_MINOR_VERSION < 7 || (PY_MINOR_VERSION == 7 && PY_MICRO_VERSION < 14))
++                (PY_MINOR_VERSION < 7 || (PY_MINOR_VERSION == 7 && PY_MICRO_VERSION > 8))
+         Py_NoSiteFlag = 0;
+ #endif
+ 
